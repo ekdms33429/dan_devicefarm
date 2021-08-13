@@ -61,5 +61,8 @@ class TestFirst(unittest.TestCase):
             self.driver.press_keycode(4)
             assert True
 
+    def tearDown(self):
+        self.driver.quit()
+
 if __name__ == '__main__':
     unittest.main()
