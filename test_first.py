@@ -48,13 +48,15 @@ class TestFirst(unittest.TestCase):
             cv2.rectangle(img, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
         try:
             TouchAction(self.driver).tap(x=pt[0] + w / 2, y=pt[1] + h / 2).perform()
-
+            WebDriverWait(self.driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, "//*[contains(@text, '카카오톡으로 간편 로그인')]")))
+            '''
             #창 띄워서 영역 확인-red rectangle
             img_scale = cv2.resize(img, None, fx=0.2, fy=0.2, interpolation=cv2.INTER_AREA)  # fx, fx = 이미지 가로/세로 사이즈의 배수
             cv2.imshow("Matching Result", img_scale)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
-            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//*[contains(@text, '카카오톡으로 간편 로그인')]")))
+            '''
         except:
             assert False
         else:
