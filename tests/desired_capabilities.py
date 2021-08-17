@@ -24,6 +24,10 @@ def android_driver() -> 'WebDriver':
     desired_caps = {
         'platformName': 'Android',
         'automationName': 'uiautomator2',
+        'platformVersion': '11',
+        'deviceName': 'Galaxy Note10+ 5G',
+        'app': 'C:\\Users\\KIWIPLUS\\Desktop\\apk\\kiwiplay-v1.1.1(111)-stage-debug.apk',
+        'deviceUDID': 'R3CM70H0BAV'
     }
 
     driver = webdriver.Remote(SERVER_URL_BASE, desired_caps)
